@@ -28,7 +28,7 @@ export class HelloWorld extends LitElement {
   }
 
   render() {
-    return html`<p>Hello ${this.who}<p/>`;
+    return html`<p>Hello ${this.who} JOHNNY !<p/>`;
   }
 }
 
