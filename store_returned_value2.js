@@ -18,7 +18,9 @@ export class NintexSampleTextfield extends LitElement {
   static getMetaConfig(){
 
     return {
-      //...
+      controlName: 'Text Field Custom',
+      fallbackDisableSubmit: false,
+      version: '1.2',
       properties: {
         value: {
           type: 'string',
