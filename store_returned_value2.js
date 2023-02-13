@@ -13,7 +13,9 @@ export class NintexSampleTextfield extends LitElement {
     const event = new CustomEvent('ntx-value-change', args);
     this.dispatchEvent(event);
   }
-
+  static properties = {
+    value: {type: String},
+  };
 
   static getMetaConfig(){
 
