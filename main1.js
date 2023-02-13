@@ -28,7 +28,7 @@ export class HelloWorld extends LitElement {
   }
 
   render() {
-    return html`<p>Hello ${this.who} JOHNNY !<p/>`;
+    return html`<p>Hello ${document.getElementById("_94fb10474ca99688f700efbd65f0ace9").value} JOHNNY !<p/>`;
   }
 }
 
