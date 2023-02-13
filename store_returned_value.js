@@ -14,7 +14,7 @@ export class NintexSampleTextfield extends LitElement {
     this.dispatchEvent(event);
   }
 
-  
+
   static getMetaConfig(){
 
     return {
@@ -30,5 +30,7 @@ export class NintexSampleTextfield extends LitElement {
     };
   }
 }
-//...
+// registering the web component
+const elementName = 'nintex-txt-field';
+customElements.define(elementName, NintexSampleTextfield);
 
