@@ -1,48 +1,6 @@
 import { html,LitElement} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
 // define the component
 
-
-
-export class HelloWorld extends LitElement {
-  
-  
-  static properties = {
-    sentid: {type: String},
-  };
-  
-  // return a promise for contract changes.
-  static getMetaConfig() {
-    return {
-      controlName: 'Hello World',
-      fallbackDisableSubmit: false,
-      version: '1.2',
-      properties: {
-        sentid: {
-          type: 'string',
-          title: 'sentid',
-          description: ''
-        }
-      }
-    };
-  }
-  
-  constructor() {
-    super();
-    this.sentid = 'World';
-  }
-  
-  render() {
-    //return html`<p>Hello ${this.sentid} JOHNNY !<p/>`;
-    content=tableFromJson()
-    return html`${content}`;
-  }
-}
-// registering the web component
-const elementName = 'hello-world';
-customElements.define(elementName, HelloWorld);
-
-
-
 let tableFromJson = () => {
   // the json data.
   const myBooks = [
@@ -97,3 +55,44 @@ let tableFromJson = () => {
   divShowData.appendChild(table);
   return (table.outerHTML)
 }
+
+export class HelloWorld extends LitElement {
+  
+  
+  static properties = {
+    sentid: {type: String},
+  };
+  
+  // return a promise for contract changes.
+  static getMetaConfig() {
+    return {
+      controlName: 'Hello World',
+      fallbackDisableSubmit: false,
+      version: '1.2',
+      properties: {
+        sentid: {
+          type: 'string',
+          title: 'sentid',
+          description: ''
+        }
+      }
+    };
+  }
+  
+  constructor() {
+    super();
+    this.sentid = 'World';
+  }
+  
+  render() {
+    //return html`<p>Hello ${this.sentid} JOHNNY !<p/>`;
+    content=tableFromJson()
+    return html`${content}`;
+  }
+}
+// registering the web component
+const elementName = 'hello-world';
+customElements.define(elementName, HelloWorld);
+
+
+
