@@ -71,8 +71,10 @@
     }
 
     // Now, add the newly created table with json data, to a container.
-
-    return (table.outerHTML)
+    const divShowData = document.getElementById('showData');
+    divShowData.innerHTML = "";
+    divShowData.appendChild(table);
+    return (typeof(String(table.outerHTML)))
   }
   alert(tableFromJson())
 </script>
