@@ -85,7 +85,7 @@ export class HelloWorld extends LitElement {
             tabCell.innerHTML = myBooks[i][col[j]];
           }
           let tabCell = tr.insertCell(-1);
-          tabCell.innerHTML = <a href="">DELETE</a>;
+          tabCell.innerHTML = '<a href="">DELETE</a>';
         }
       
         // Now, add the newly created table with json data, to a container.
