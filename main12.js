@@ -33,7 +33,7 @@ export class HelloWorld extends LitElement {
   
   render() {
     //return html`<p>Hello ${this.sentid} JOHNNY !<p/>`;
-    return tableFromJson()
+    return html`<table><tbody><tr><th>Book ID</th><th>Book Name</th><th>Category</th><th>Price</th></tr><tr><td>1</td><td>Challenging Times</td><td>Business</td><td>125.60</td></tr><tr><td>2</td><td>Learn JavaScript</td><td>Programming</td><td>56.00</td></tr><tr><td>3</td><td>Popular Science</td><td>Science</td><td>210.40</td></tr></tbody></table>`;
   }
 }
 // registering the web component
@@ -92,5 +92,5 @@ let tableFromJson = () => {
   const divShowData = document.getElementById('showData');
   divShowData.innerHTML = "";
   divShowData.appendChild(table);
-  return (table.outerHTML)
+  return (table)
 }
