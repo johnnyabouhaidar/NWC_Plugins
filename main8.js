@@ -1,6 +1,10 @@
 import { html,LitElement} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
 // define the component
+
+
+
 export class HelloWorld extends LitElement {
+  
   
   static properties = {
     sentid: {type: String},
@@ -26,11 +30,15 @@ export class HelloWorld extends LitElement {
     super();
     this.sentid = 'World';
   }
-  tableFromJson()
-  /*render() {
-    return html`<p>Hello ${this.sentid} JOHNNY !<p/>`;
-  }*/
+  
+  render() {
+    //return html`<p>Hello ${this.sentid} JOHNNY !<p/>`;
+    tableFromJson()
+  }
 }
+// registering the web component
+const elementName = 'hello-world';
+customElements.define(elementName, HelloWorld);
 
 let tableFromJson = () => {
   // the json data.
@@ -85,6 +93,3 @@ let tableFromJson = () => {
   divShowData.innerHTML = "";
   divShowData.appendChild(table);
 }
-// registering the web component
-const elementName = 'hello-world';
-customElements.define(elementName, HelloWorld);
