@@ -40,7 +40,7 @@ export class HelloWorld extends LitElement {
   render() {
     //return html`<p>Hello ${this.sentid} JOHNNY !<p/>`;
         // the json data.
-        const myBooks = [
+        const itemss = [
           {'Book ID': '1', 'Book Name': 'Challenging Times',
            'Category': 'Business', 'Price': '125.60'
           },
@@ -55,8 +55,8 @@ export class HelloWorld extends LitElement {
         // Extract value from table header. 
         // ('Book ID', 'Book Name', 'Category' and 'Price')
         let col = [];
-        for (let i = 0; i < myBooks.length; i++) {
-          for (let key in myBooks[i]) {
+        for (let i = 0; i < itemss.length; i++) {
+          for (let key in itemss[i]) {
             if (col.indexOf(key) === -1) {
               col.push(key);
             }
@@ -76,13 +76,13 @@ export class HelloWorld extends LitElement {
         }
       
         // add json data to the table as rows.
-        for (let i = 0; i < myBooks.length; i++) {
+        for (let i = 0; i < itemss.length; i++) {
       
           tr = table.insertRow(-1);
       
           for (let j = 0; j < col.length; j++) {
             let tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = myBooks[i][col[j]];
+            tabCell.innerHTML = itemss[i][col[j]];
           }
           let tabCell = tr.insertCell(-1);
           tabCell.innerHTML = '<a href="">DELETE</a>';

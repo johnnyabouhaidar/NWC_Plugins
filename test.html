@@ -20,10 +20,18 @@
 </body>
 
 <script>
-
   
   let tableFromJson = () => {
     // the json data.
+   /* $.ajax({
+					type: "POST",
+					url:"",
+					data: '71:42' + '["session_request",{"session_id":"' + me.session_id + '"}]',
+					dataType: 'text',
+					success: function (response) {}});
+*/
+
+
     const myBooks = [
       {'Book ID': '1', 'Book Name': 'Challenging Times',
        'Category': 'Business', 'Price': '125.60'
@@ -66,7 +74,7 @@
 
       for (let j = 0; j < col.length; j++) {
         let tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = myBooks[i][col[j]];
+        tabCell.innerHTML = '<input value="'+myBooks[i][col[j]]+'"></input>';
       }
     }
 
@@ -74,7 +82,7 @@
     const divShowData = document.getElementById('showData');
     divShowData.innerHTML = "";
     divShowData.appendChild(table);
-    return (typeof(String(table.outerHTML)))
+    return ((table.outerHTML))
   }
   alert(tableFromJson())
 </script>
