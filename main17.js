@@ -35,7 +35,7 @@ export class HelloWorld extends LitElement {
   }
   
 
-  static tableFromJson(){
+  tableFromJson(){
     // the json data.
     const myBooks = [
       {'Book ID': '1', 'Book Name': 'Challenging Times',
@@ -84,7 +84,7 @@ export class HelloWorld extends LitElement {
     }
   
     // Now, add the newly created table with json data, to a container.
-
+    alert(table.outerHTML)
     return (table.outerHTML)
   }
 
