@@ -84,9 +84,7 @@ export class HelloWorld extends LitElement {
     }
   
     // Now, add the newly created table with json data, to a container.
-    const divShowData = document.getElementById('showData');
-    divShowData.innerHTML = "";
-    divShowData.appendChild(table);
+
     return (table.outerHTML)
   }
 
