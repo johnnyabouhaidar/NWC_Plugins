@@ -89,7 +89,7 @@ export class HelloWorld extends LitElement {
         // Now, add the newly created table with json data, to a container.
         content= (table.outerHTML)
     //content=tableFromJson()
-    return html`${content}`;
+    return table;
   }
 }
 // registering the web component
