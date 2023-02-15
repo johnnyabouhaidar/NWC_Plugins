@@ -90,7 +90,7 @@ headers: {
 
   var htmlObject = document.createElement('table');
   htmlObject.innerHTML=tab
-  document.getElementsByClassName("ng-star-inserted").appendChild(htmlObject); 
+  document.getElementById("actionpanel1-group-control").appendChild(htmlObject); 
 
 
     return htmlObject;
