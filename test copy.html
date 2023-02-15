@@ -26,6 +26,11 @@
 
 <script>
 
+function myFunction(idd)
+{
+  alert(idd)
+}
+
 var script = document.createElement('script');
 script.src = 'https://code.jquery.com/jquery-3.6.3.min.js'; // Check https://jquery.com/ for the current version
 document.getElementsByTagName('head')[0].appendChild(script);
@@ -60,6 +65,8 @@ async function getapi(url) {
     var data = await response.json();
     console.log(data.value);
 
+
+
     let tab = 
         `<table><tr>
           <th>Title</th>
@@ -74,11 +81,16 @@ async function getapi(url) {
     <td><input value="${r.Title}"> </td>
     <td><input value="${r.OData__x0066_p31}"></td>
     <td><input value="${r.odmd}"></td> 
-    <td><a href="">DELETE</a></td>          
+    <td><button onclick="myFunction(${r.Title})">DELETE</a></td>          
 </tr>`;
     }
     // Setting innerHTML as tab variable
-
+    tab += `<tr> 
+    <td><input value=""> </td>
+    <td><input value=""></td>
+    <td><input value=""></td> 
+    <td><button onclick="myFunction()">ADD</a></td>          
+</tr>`
     var obj=document.createElement("newww")
     obj.innerHTML = tab;
     document.body.appendChild(obj);  
