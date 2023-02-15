@@ -90,7 +90,7 @@ headers: {
 
   var htmlObject = document.createElement('table');
   htmlObject.innerHTML=tab
-  document.getElementById("nx-form-container").appendChild(htmlObject); 
+  document.getElementsByClassName("ng-star-inserted").appendChild(htmlObject); 
 
 
     return htmlObject;
