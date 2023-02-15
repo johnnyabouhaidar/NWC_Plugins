@@ -66,7 +66,7 @@ headers: {
   console.log(data.value);
 
   let tab = 
-      `<table><tr>
+      `<tr>
         <th>Title</th>
         <th>col1</th>
         <th>col2</th>
@@ -82,17 +82,20 @@ headers: {
   <td><a href="">DELETE</a></td>          
 </tr>`;
   }
+
+
   // Setting innerHTML as tab variable
 
 
 
-
+  var htmlObject = document.createElement('table');
+  htmlObject.innerHTML=tab
 
 
     return tab;
   }
   let res=getapi(api_url)
-  return( html`${res}`)
+  return( res)
 }
 
 }
