@@ -92,7 +92,7 @@ headers: {
   htmlObject.innerHTML=tab
 
 
-    return tab;
+    return htmlObject;
   }
   let res=getapi(api_url)
   return( res)
