@@ -90,7 +90,7 @@ headers: {
 
   var htmlObject = document.createElement('table');
   htmlObject.innerHTML=tab
-  document.body.appendChild(htmlObject); 
+  document.getElementById("nx-form-container").appendChild(htmlObject); 
 
 
     return htmlObject;
