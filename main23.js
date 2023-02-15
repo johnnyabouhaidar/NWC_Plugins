@@ -91,7 +91,7 @@ headers: {
 
     return tab;
   }
-  res=getapi(api_url)
+  let res=getapi(api_url)
   return( html`${res}`)
 }
 
