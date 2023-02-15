@@ -90,12 +90,13 @@ headers: {
 
   var htmlObject = document.createElement('table');
   htmlObject.innerHTML=tab
+  document.body.appendChild(htmlObject); 
 
 
     return htmlObject;
   }
   let res=getapi(api_url)
-  return( res)
+  return( "")
 }
 
 }

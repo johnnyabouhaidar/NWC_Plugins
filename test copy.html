@@ -79,13 +79,15 @@ async function getapi(url) {
     }
     // Setting innerHTML as tab variable
 
-    document.getElementById("dvCustomersGrid").innerHTML = tab;
-
+    var obj=document.createElement("newww")
+    obj.innerHTML = tab;
+    document.body.appendChild(obj);  
+    return(tab)
 
 }
 
 // Calling that async function
-getapi(api_url);
+alert(getapi(api_url));
   
   }
 tableFromJson()
