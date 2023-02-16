@@ -40,7 +40,8 @@ export class HelloWorld extends LitElement {
   render() {
 
     let bearertoken="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyIsImtpZCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvaWNjbGViLnNoYXJlcG9pbnQuY29tQGIxMzQ4ZjUwLTAzMGUtNGVhMS04ZDQ0LTQ5M2VlMTlmODhkOCIsImlzcyI6IjAwMDAwMDAxLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMEBiMTM0OGY1MC0wMzBlLTRlYTEtOGQ0NC00OTNlZTE5Zjg4ZDgiLCJpYXQiOjE2NzY1MzA5MDQsIm5iZiI6MTY3NjUzMDkwNCwiZXhwIjoxNjc2NjE3NjA0LCJpZGVudGl0eXByb3ZpZGVyIjoiMDAwMDAwMDEtMDAwMC0wMDAwLWMwMDAtMDAwMDAwMDAwMDAwQGIxMzQ4ZjUwLTAzMGUtNGVhMS04ZDQ0LTQ5M2VlMTlmODhkOCIsIm5hbWVpZCI6ImM4YTc2ZjkzLThjNmItNDExYy04ZDQ0LTU4OWE5MmNhMWM5MEBiMTM0OGY1MC0wMzBlLTRlYTEtOGQ0NC00OTNlZTE5Zjg4ZDgiLCJvaWQiOiJiMzAwYzlmZC02ZDA0LTQxMzctOGYyYS0yMGM4MTUyNWViNGYiLCJzdWIiOiJiMzAwYzlmZC02ZDA0LTQxMzctOGYyYS0yMGM4MTUyNWViNGYiLCJ0cnVzdGVkZm9yZGVsZWdhdGlvbiI6ImZhbHNlIn0.ATrODyrPG7ql85UxkYZipbLxHftC_TKdfkIbVSzejaKHqZTYi_FXf-neAlloE9iqCHRC-mkZnfMTmlg0ONBTUUNpQkRl6BpIqZndzAgWAxFEuyOibyamLYSilDRz3Jm-oRHcDhfi6HGgE2TLeUeA357XRitjwa7J4tnmDjYuUyT7T6nDSah6TDA3FG7vEkXFtf9aJ_0cLNGhK-GYVwcH1iOTbvJV8KgBxks8TAdYpiJnflw4ukJ62bk_lcFbY9Ok5yCELWuz5owQiNi0oFqeAcxAV_24bwKeOjMv6HLJ2-SSg391PK360HyiNH8l5YOE1cUCuE-nSPYGXxbvBs312w"
-
+    
+    
     async function addnewFunc() ////////////////////////////////////////ADD NEW ITEM
     {
       //alert(document.getElementById("new1").value)
@@ -79,6 +80,7 @@ export class HelloWorld extends LitElement {
         
     location.reload();
     }
+
     
     
     
@@ -214,7 +216,7 @@ headers: {
   <td><input id = "new1" value=""> </td>
   <td><input id ="new2" value=""></td>
   <td><input  id ="new3"  value=""></td> 
-  <td><button id="newbtn" onclick="addnewFunc()">+</a></td>          
+  <td><button id="newbtn">+</a></td>          
 </tr>`
 
   // Setting innerHTML as tab variable
@@ -225,6 +227,7 @@ headers: {
   htmlObject.innerHTML=tab
   document.getElementById("actionpanel1-group-control").appendChild(htmlObject); 
 
+  document.getElementById ("newbtn").addEventListener ("click", addnewFunc, false);
 
     return htmlObject;
   }

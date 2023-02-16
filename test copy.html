@@ -207,11 +207,16 @@ async function getapi(url) {
     <td><input id = "new1" value=""> </td>
     <td><input id ="new2" value=""></td>
     <td><input  id ="new3"  value=""></td> 
-    <td><button id="newbtn" onclick="addnewFunc()">+</a></td>          
+    <td><button id="newbtn">+</a></td>          
 </tr>`
+
+
+
     var obj=document.createElement("newww")
     obj.innerHTML = tab;
     document.body.appendChild(obj);  
+
+    document.getElementById ("newbtn").addEventListener ("click", addnewFunc, false);
     return(tab)
 
 }
