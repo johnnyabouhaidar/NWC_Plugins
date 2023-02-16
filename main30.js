@@ -13,7 +13,7 @@ export class HelloWorld extends LitElement {
   // return a promise for contract changes.
   static getMetaConfig() {
     return {
-      controlName: 'Hello World',
+      controlName: 'Test SP LIST',
       fallbackDisableSubmit: false,
       version: '1.2',
       properties: {
