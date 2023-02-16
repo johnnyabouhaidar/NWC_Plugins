@@ -207,8 +207,8 @@ headers: {
       <td><input id=curr${r.Id}1 value="${r.Title}"> </td>
       <td><input id=curr${r.Id}2 value="${r.OData__x0066_p31}"></td>
       <td><input id=curr${r.Id}3 value="${r.odmd}"></td> 
-      <td><button onclick="deleteitem('${r.Id}')">DELETE</a></td>
-      <td><button onclick="updateitem('${r.Id}')">UPDATE</a></td>         
+      <td><button id = "currdel${r.Id}"">DELETE</a></td>
+      <td><button id = "currupdate${r.Id}" ">UPDATE</a></td>          
 </tr>`;
   }
 
@@ -228,6 +228,13 @@ headers: {
   document.getElementById("actionpanel1-group-control").appendChild(htmlObject); 
 
   document.getElementById ("newbtn").addEventListener ("click", addnewFunc, false);
+  for (let r of data.value) {
+  document.getElementById (`currdel${r.Id}`).addEventListener ("click", function(){ deleteitem(r.Id); });
+  }
+
+  for (let r of data.value) {
+  document.getElementById (`currupdate${r.Id}`).addEventListener ("click", function(){ updateitem(r.Id); });
+  }
 
     return htmlObject;
   }
