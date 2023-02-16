@@ -189,15 +189,25 @@ async function getapi(url) {
           <th>Title</th>
           <th>col1</th>
           <th>col2</th>
+          <th>date</th>
 
          </tr>`;
     
+
+
     // Loop to access all rows 
     for (let r of data.value) {
+      let datevar=null
+      try{
+        datevar=r.expirydate.split('T')[0]
+      }catch{
+        datevar=null
+      }
         tab += `<tr> 
     <td><input id=curr${r.Id}1 value="${r.Title}"> </td>
     <td><input id=curr${r.Id}2 value="${r.OData__x0066_p31}"></td>
     <td><input id=curr${r.Id}3 value="${r.odmd}"></td> 
+    <td><input type="date" id=curr${r.Id}4 value="${datevar}"></input></td> 
     <td><button id = "currdel${r.Id}"">DELETE</a></td>
     <td><button id = "currupdate${r.Id}" ">UPDATE</a></td>          
 </tr>`;
@@ -207,6 +217,7 @@ async function getapi(url) {
     <td><input id = "new1" value=""> </td>
     <td><input id ="new2" value=""></td>
     <td><input  id ="new3"  value=""></td> 
+    <td><input type="date" id="new4" value=""></input></td>
     <td><button id="newbtn">+</a></td>          
 </tr>`
 
