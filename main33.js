@@ -1,0 +1,264 @@
+import { html,LitElement} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
+// define the component
+
+
+
+export class HelloWorld extends LitElement {
+  
+  
+  static properties = {
+    sentid: {type: String},
+  };
+  
+  // return a promise for contract changes.
+  static getMetaConfig() {
+    return {
+      controlName: 'Test SP LIST',
+      fallbackDisableSubmit: false,
+      version: '1.2',
+      properties: {
+        sentid: {
+          type: 'string',
+          title: 'sentid',
+          description: ''
+        }
+      }
+    };
+  }
+  
+
+
+
+  constructor() {
+    super();
+    this.sentid = 'World';
+  }
+  
+
+
+
+  render() {
+
+    let bearertoken="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyIsImtpZCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvaWNjbGViLnNoYXJlcG9pbnQuY29tQGIxMzQ4ZjUwLTAzMGUtNGVhMS04ZDQ0LTQ5M2VlMTlmODhkOCIsImlzcyI6IjAwMDAwMDAxLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMEBiMTM0OGY1MC0wMzBlLTRlYTEtOGQ0NC00OTNlZTE5Zjg4ZDgiLCJpYXQiOjE2NzY4ODUxMDcsIm5iZiI6MTY3Njg4NTEwNywiZXhwIjoxNjc2OTcxODA3LCJpZGVudGl0eXByb3ZpZGVyIjoiMDAwMDAwMDEtMDAwMC0wMDAwLWMwMDAtMDAwMDAwMDAwMDAwQGIxMzQ4ZjUwLTAzMGUtNGVhMS04ZDQ0LTQ5M2VlMTlmODhkOCIsIm5hbWVpZCI6ImM4YTc2ZjkzLThjNmItNDExYy04ZDQ0LTU4OWE5MmNhMWM5MEBiMTM0OGY1MC0wMzBlLTRlYTEtOGQ0NC00OTNlZTE5Zjg4ZDgiLCJvaWQiOiJiMzAwYzlmZC02ZDA0LTQxMzctOGYyYS0yMGM4MTUyNWViNGYiLCJzdWIiOiJiMzAwYzlmZC02ZDA0LTQxMzctOGYyYS0yMGM4MTUyNWViNGYiLCJ0cnVzdGVkZm9yZGVsZWdhdGlvbiI6ImZhbHNlIn0.e3MAdQzbcsWtlFK8CJlOGAIU68ZR3hoA00F_aMBhYpzGJEhsIBTTo9GtwuudNPpU2C_Tq21c3_RwqEY-GkcWcTyy-PqbGLIP6moVSN1i4m6Dgx0A1OzXWxZ8p6w_YzK8geFvcSkJnmqHatAMXgetXZMXwR0XVckVa85XPJhDvVDUyRposuZHw_prSC8mYUY-mHTsO3t4jwyova26mJGFK516-kmqtdE5FqX0yhVHAQArRxzM3b1ZWHYyO_iUaPpkXIsy5m8Keo0QJjk6GBL95eh_gk4oC26thhaeqgP3PZfSic2Id605VriI3GNTJQ1h38i6VYiEBfcXPz5_uFCKUg"
+    
+    
+    async function addnewFunc() ////////////////////////////////////////ADD NEW ITEM
+    {
+  //alert(document.getElementById("new1").value)
+
+  const addurl = `https://iccleb.sharepoint.com/sites/NintexTrainee/JohnnyAbouHaidar/_api/web/lists/GetByTitle('list2read')/items`;
+  
+// Defining async function
+
+    
+    // Storing response
+    const response = await fetch(addurl, {
+  method: "POST",
+
+  headers: {
+   // "Content-Type": "application/json"    --> option 1 (not working)
+    "Authorization": `Bearer ${bearertoken}` ,
+    "Accept":"application/json;odata=verbose",
+    "Content-Type": "application/json;odata=verbose",
+
+
+   // "Content-Type": "multipart/form-data"  
+   // "Content-Type": "text/plain"    --> option 4
+  },
+
+ body:JSON.stringify({
+  "__metadata": {
+    "type": "SP.ListItem"
+  },
+  "Title": document.getElementById("new1").value,
+  "OData__x0066_p31":document.getElementById("new2").value,
+  "odmd":document.getElementById("new3").value,
+  "expirydate":document.getElementById("new4").value
+})
+
+
+});
+    
+location.reload();
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    async function updateitem(idd)////////////////////////UPDATE ITEM
+    {
+    
+      const addurl = `https://iccleb.sharepoint.com/sites/NintexTrainee/JohnnyAbouHaidar/_api/web/lists/GetByTitle('list2read')/items(${idd})`;
+  
+      // Defining async function
+      
+          
+          // Storing response
+          const response = await fetch(addurl, {
+        method: "POST",
+      
+        headers: {
+         // "Content-Type": "application/json"    --> option 1 (not working)
+          "Authorization": `Bearer ${bearertoken}` ,
+          "Accept":"application/json;odata=verbose",
+          "Content-Type": "application/json;odata=verbose",
+          "If-Match": "*",
+          "X-HTTP-Method": "MERGE"
+      
+      
+         // "Content-Type": "multipart/form-data"  
+         // "Content-Type": "text/plain"    --> option 4
+        },
+      
+       body:JSON.stringify({
+        "__metadata": {
+          "type": "SP.ListItem"
+        },
+        "Title": document.getElementById(`curr${idd}1`).value,
+        "OData__x0066_p31":document.getElementById(`curr${idd}2`).value,
+        "odmd":document.getElementById(`curr${idd}3`).value,
+        "expirydate":document.getElementById(`curr${idd}4`).value
+      })
+      
+      
+      });
+          
+      location.reload();
+    }
+    
+    
+    
+    
+    
+    
+    
+    async function deleteitem(idd)//////////////////DELETE ITEM
+    {
+      const delurl = `https://iccleb.sharepoint.com/sites/NintexTrainee/JohnnyAbouHaidar/_api/web/lists/GetByTitle('list2read')/items(${idd})`;
+      
+    // Defining async function
+    
+        
+        // Storing response
+        const response = await fetch(delurl, {
+      method: "POST",
+    
+      headers: {
+       // "Content-Type": "application/json"    --> option 1 (not working)
+        "Authorization": `Bearer ${bearertoken}`  ,
+        "Accept":"application/json;odata=verbose",
+        "Content-Type": "application/json",
+        "If-Match": "*",
+        "X-HTTP-Method": "DELETE"
+       // "Content-Type": "multipart/form-data"  
+       // "Content-Type": "text/plain"    --> option 4
+      },
+    
+     
+    
+    });
+        
+    location.reload();
+    }
+    
+    
+  
+
+    const api_url = 
+    "https://iccleb.sharepoint.com/sites/NintexTrainee/JohnnyAbouHaidar/_api/web/lists/GetByTitle('list2read')/items";
+
+// Defining async function
+async function getapi(url) {
+  
+  // Storing response
+  const response = await fetch(url, {
+method: "GET",
+
+headers: {
+ // "Content-Type": "application/json"    --> option 1 (not working)
+  "Authorization": `Bearer ${bearertoken}`,
+  "Accept":"application/json"
+ // "Content-Type": "multipart/form-data"  
+ // "Content-Type": "text/plain"    --> option 4
+},
+
+
+
+});
+  
+  // Storing data in form of JSON
+  var data = await response.json();
+  console.log(data.value);
+
+  let tab = 
+  `<table><tr>
+    <th>Title</th>
+    <th>col1</th>
+    <th>col2</th>
+    <th>date</th>
+
+   </tr>`;
+
+
+
+// Loop to access all rows 
+for (let r of data.value) {
+let datevar=null
+try{
+  datevar=r.expirydate.split('T')[0]
+}catch{
+  datevar=null
+}
+  tab += `<tr> 
+<td><input id=curr${r.Id}1 value="${r.Title}"> </td>
+<td><input id=curr${r.Id}2 value="${r.OData__x0066_p31}"></td>
+<td><input id=curr${r.Id}3 value="${r.odmd}"></td> 
+<td><input type="date" id=curr${r.Id}4 value="${datevar}"></input></td> 
+<td><button id = "currdel${r.Id}"">DELETE</a></td>
+<td><button id = "currupdate${r.Id}" ">UPDATE</a></td>          
+</tr>`;
+}
+// Setting innerHTML as tab variable
+tab += `<tr> 
+<td><input id = "new1" value=""> </td>
+<td><input id ="new2" value=""></td>
+<td><input  id ="new3"  value=""></td> 
+<td><input type="date" id="new4" value=""></input></td>
+<td><button id="newbtn">+</a></td>          
+</tr>`
+
+  // Setting innerHTML as tab variable
+
+
+
+  var htmlObject = document.createElement('table');
+  htmlObject.innerHTML=tab
+  document.getElementById("actionpanel1-group-control").appendChild(htmlObject); 
+
+  document.getElementById ("newbtn").addEventListener ("click", addnewFunc, false);
+  for (let r of data.value) {
+  document.getElementById (`currdel${r.Id}`).addEventListener ("click", function(){ deleteitem(r.Id); });
+  }
+
+  for (let r of data.value) {
+  document.getElementById (`currupdate${r.Id}`).addEventListener ("click", function(){ updateitem(r.Id); });
+  }
+
+    return htmlObject;
+  }
+  let res=getapi(api_url)
+  return( "")
+}
+
+}
+// registering the web component
+const elementName = 'hello-world';
+customElements.define(elementName, HelloWorld);
+
+
+
