@@ -183,7 +183,7 @@ export class HelloWorld extends LitElement {
     
     async function deleteitem(idd)//////////////////DELETE ITEM
     {
-      const delurl = `https://iccleb.sharepoint.com/sites/NintexTrainee/JohnnyAbouHaidar/_api/web/lists/GetByTitle('list2read')/items(${idd})`;
+      const delurl = `${siteurl}/_api/web/lists/GetByTitle('${listname}')/items(${idd})`;
       
     // Defining async function
     
@@ -214,7 +214,7 @@ export class HelloWorld extends LitElement {
   
 
     const api_url = 
-    "https://iccleb.sharepoint.com/sites/NintexTrainee/JohnnyAbouHaidar/_api/web/lists/GetByTitle('list2read')/items";
+    `${siteurl}/_api/web/lists/GetByTitle('${listname}')/items`;
 
 // Defining async function
 async function getapi(url) {
@@ -240,14 +240,12 @@ headers: {
   console.log(data.value);
 
   let tab = 
-  `<table><tr>
-    <th>Title</th>
-    <th>col1</th>
-    <th>col2</th>
-    <th>date</th>
+  `<table><tr>`
+         for (let col of col_items){
+          tab+=`<th>${col}</th>`
+         } 
 
-   </tr>`;
-
+   tab+=`</tr>`;
 
 
 // Loop to access all rows 
