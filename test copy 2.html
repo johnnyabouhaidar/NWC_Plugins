@@ -31,7 +31,7 @@ let siteurl="https://iccleb.sharepoint.com/sites/NintexTrainee/JohnnyAbouHaidar"
 let listname="Employees Training Information";
 
 let col_items=[
-          "Title",
+
           "EmployeeName",
           "EmployeeID",
           "EmployeeEmail",
@@ -48,8 +48,8 @@ let col_items=[
           "NonTechnicalTrainingCategory1",
           "NonTechnicalTrainingCompetency1",
           "NonTechnicalTrainingCourse1",
-          "NonTechnicalTrainingPreferredLea",
-          "NonTechnicalTrainingPreferredLea0"
+          "NonTechnicalTrainingPreferredLearningMethod",
+          "NonTechnicalTrainingPreferredLearningMethodOther"
 ]
 
 
@@ -65,27 +65,8 @@ async function addnewFunc() ////////////////////////////////////////ADD NEW ITEM
 
     
     // Storing response
-    bodyy=`{  "__metadata": {
-    "type": "SP.ListItem"
-  },`
-  col_items.forEach(function (field, i)
-  
-  {
-    if (col_items.length!=i+1)
-    {bodyy+=`"${field}": "${document.getElementById("new"+(i+1)).value}",`}
-else
-{bodyy+=`"${field}": "${document.getElementById("new"+(i+1)).value}"`}
-}
-);
-  
-          bodyy+="}"
-
-      //console.log(bodyy)
     const response = await fetch(addurl, {
   method: "POST",
-
-
-
 
   headers: {
    // "Content-Type": "application/json"    --> option 1 (not working)
@@ -98,7 +79,15 @@ else
    // "Content-Type": "text/plain"    --> option 4
   },
 
- body:bodyy
+ body:JSON.stringify({
+  "__metadata": {
+    "type": "SP.ListItem"
+  },
+  "Title": document.getElementById("new1").value,
+  "OData__x0066_p31":document.getElementById("new2").value,
+  "odmd":document.getElementById("new3").value,
+  "expirydate":document.getElementById("new4").value
+})
 
 
 });
@@ -122,22 +111,6 @@ async function updateitem(idd)////////////////////////UPDATE ITEM
 
     
     // Storing response
-
-        // Storing response
-        bodyy=`{  "__metadata": {
-    "type": "SP.ListItem"
-  },`
-  col_items.forEach(function (field, i)
-  
-  {
-    if (col_items.length!=i+1)
-    {bodyy+=`"${field}": "${document.getElementById("curr"+idd+(i+1)).value}",`}
-else
-{bodyy+=`"${field}": "${document.getElementById("curr"+idd+(i+1)).value}"`}
-}
-);
-  
-          bodyy+="}"
     const response = await fetch(addurl, {
   method: "POST",
 
@@ -154,7 +127,15 @@ else
    // "Content-Type": "text/plain"    --> option 4
   },
 
- body:bodyy
+ body:JSON.stringify({
+  "__metadata": {
+    "type": "SP.ListItem"
+  },
+  "Title": document.getElementById(`curr${idd}1`).value,
+  "OData__x0066_p31":document.getElementById(`curr${idd}2`).value,
+  "odmd":document.getElementById(`curr${idd}3`).value,
+  "expirydate":document.getElementById(`curr${idd}4`).value
+})
 
 
 });
@@ -248,25 +229,23 @@ async function getapi(url) {
       }catch{
         datevar=null
       }
-        tab += `<tr>` 
-          col_items.forEach(function (field, i)
-          {
-
-            tab+=`<td><input id=curr${r["Id"]}${i+1} value="${r[field]}"> </td>`
-          });
-    
-    tab+=`<td><button id = "currdel${r.Id}"">DELETE</a></td>
+        tab += `<tr> 
+    <td><input id=curr${r.Id}1 value="${r["Title"]}"> </td>
+    <td><input id=curr${r.Id}2 value="${r["OData__x0066_p31"]}"></td>
+    <td><input id=curr${r.Id}3 value="${r.odmd}"></td> 
+    <td><input type="date" id=curr${r.Id}4 value="${datevar}"></input></td> 
+    <td><button id = "currdel${r.Id}"">DELETE</a></td>
     <td><button id = "currupdate${r.Id}" ">UPDATE</a></td>          
 </tr>`;
     }
     // Setting innerHTML as tab variable
-    tab += `<tr> `
-      col_items.forEach(function (field, i)
-          {
-
-            tab+=`<td><input  id ="new${i+1}"  value=""></td>`
-          });
-    tab+=`<td><button id="newbtn">+</a></td>    </tr>`
+    tab += `<tr> 
+    <td><input id = "new1" value=""> </td>
+    <td><input id ="new2" value=""></td>
+    <td><input  id ="new3"  value=""></td> 
+    <td><input type="date" id="new4" value=""></input></td>
+    <td><button id="newbtn">+</a></td>          
+</tr>`
 
 
 
