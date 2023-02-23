@@ -77,7 +77,7 @@ export class HelloWorld extends LitElement {
    
        
        // Storing response
-       bodyy=`{  "__metadata": {
+       const bodyy=`{  "__metadata": {
        "type": "SP.ListItem"
      },`
      col_items.forEach(function (field, i)
@@ -136,7 +136,7 @@ export class HelloWorld extends LitElement {
           // Storing response
       
               // Storing response
-              bodyy=`{  "__metadata": {
+             const bodyy=`{  "__metadata": {
           "type": "SP.ListItem"
         },`
         col_items.forEach(function (field, i)
