@@ -239,16 +239,40 @@ headers: {
   var data = await response.json();
   console.log(data.value);
 
+let tab="";
+
+/*
   let tab = 
   `<table><tr>`
          for (let col of col_items){
           tab+=`<th>${col}</th>`
          } 
 
-   tab+=`</tr>`;
+   tab+=`</tr>`;*/
 
 
 // Loop to access all rows 
+for (let r of data.value) {
+  let datevar=null
+  try{
+    datevar=r.expirydate.split('T')[0]
+  }catch{
+    datevar=null
+  }
+    tab += `<div style ="border:1px solid black;">` 
+      col_items.forEach(function (field, i)
+      {
+
+        tab+=` <label for="curr${r["Id"]}${i+1}" style="text-align: right; display: inline-block;width: 290px;">${field}</label><input style="padding-left:50px;" id=curr${r["Id"]}${i+1} value="${r[field]}"><br>`
+      });
+
+tab+=`<button id = "currdel${r.Id}"">DELETE</a>
+<button id = "currupdate${r.Id}" ">UPDATE</a>        
+</div><br><br><br>`;
+}
+
+
+/*
 for (let r of data.value) {
   let datevar=null
   try{
@@ -266,9 +290,10 @@ for (let r of data.value) {
 tab+=`<td><button id = "currdel${r.Id}"">DELETE</a></td>
 <td><button id = "currupdate${r.Id}" ">UPDATE</a></td>          
 </tr>`;
-}
+}*/
 // Setting innerHTML as tab variable
     // Setting innerHTML as tab variable
+    /*
     tab += `<tr> `
       col_items.forEach(function (field, i)
           {
@@ -276,6 +301,7 @@ tab+=`<td><button id = "currdel${r.Id}"">DELETE</a></td>
             tab+=`<td><input  id ="new${i+1}"  value=""></td>`
           });
     tab+=`<td><button id="newbtn">+</a></td>    </tr>`
+    */
 
   // Setting innerHTML as tab variable
 
@@ -285,7 +311,7 @@ tab+=`<td><button id = "currdel${r.Id}"">DELETE</a></td>
   htmlObject.innerHTML=tab
   document.getElementById("actionpanel1-group-control").appendChild(htmlObject); 
 
-  document.getElementById ("newbtn").addEventListener ("click", addnewFunc, false);
+  //document.getElementById ("newbtn").addEventListener ("click", addnewFunc, false);
   for (let r of data.value) {
   document.getElementById (`currdel${r.Id}`).addEventListener ("click", function(){ deleteitem(r.Id); });
   }
