@@ -24,17 +24,17 @@ export class HelloWorld extends LitElement {
         },
         tokenArg: {
           type: 'string',
-          title: 'sentid',
+          title: 'tokenArg',
           description: ''
         },
         siteurlArg: {
           type: 'string',
-          title: 'sentid',
+          title: 'siteurlArg',
           description: ''
         },
         listnameArg: {
           type: 'string',
-          title: 'sentid',
+          title: 'listnameArg',
           description: ''
         }
       }
