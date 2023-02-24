@@ -54,9 +54,9 @@ export class HelloWorld extends LitElement {
 
   render() {
 
-    let bearertoken=tokenArg;
-    let siteurl=siteurlArg;
-    let listname=listnameArg;
+    let bearertoken=this.tokenArg;
+    let siteurl=this.siteurlArg;
+    let listname=this.listnameArg;
     
     let col_items=[
               "Title",
