@@ -22,17 +22,17 @@ export class HelloWorld extends LitElement {
           title: 'sentid',
           description: ''
         },
-        token: {
+        tokenArg: {
           type: 'string',
           title: 'sentid',
           description: ''
         },
-        siteurl: {
+        siteurlArg: {
           type: 'string',
           title: 'sentid',
           description: ''
         },
-        listname: {
+        listnameArg: {
           type: 'string',
           title: 'sentid',
           description: ''
@@ -54,9 +54,9 @@ export class HelloWorld extends LitElement {
 
   render() {
 
-    let bearertoken="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyIsImtpZCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvaWNjbGViLnNoYXJlcG9pbnQuY29tQGIxMzQ4ZjUwLTAzMGUtNGVhMS04ZDQ0LTQ5M2VlMTlmODhkOCIsImlzcyI6IjAwMDAwMDAxLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMEBiMTM0OGY1MC0wMzBlLTRlYTEtOGQ0NC00OTNlZTE5Zjg4ZDgiLCJpYXQiOjE2NzcyMzc5MTEsIm5iZiI6MTY3NzIzNzkxMSwiZXhwIjoxNjc3MzI0NjExLCJpZGVudGl0eXByb3ZpZGVyIjoiMDAwMDAwMDEtMDAwMC0wMDAwLWMwMDAtMDAwMDAwMDAwMDAwQGIxMzQ4ZjUwLTAzMGUtNGVhMS04ZDQ0LTQ5M2VlMTlmODhkOCIsIm5hbWVpZCI6ImM4YTc2ZjkzLThjNmItNDExYy04ZDQ0LTU4OWE5MmNhMWM5MEBiMTM0OGY1MC0wMzBlLTRlYTEtOGQ0NC00OTNlZTE5Zjg4ZDgiLCJvaWQiOiJiMzAwYzlmZC02ZDA0LTQxMzctOGYyYS0yMGM4MTUyNWViNGYiLCJzdWIiOiJiMzAwYzlmZC02ZDA0LTQxMzctOGYyYS0yMGM4MTUyNWViNGYiLCJ0cnVzdGVkZm9yZGVsZWdhdGlvbiI6ImZhbHNlIn0.Ij1fUnQ6RRtJlYb5DW1OoZrHvL6jviMgOv2OlrL3G3lDATZEPsVpPKHTdWYUFDV5QA0harTCuxYna3C-tvXnpckyCBrZhQrMvgG2LYCpRsqHK9HIZPo-wXFPDKjHsDwGIvAenIlpf3lOdOa-Zmbiav8CyDd-2J-7F31cBT1UWd0_cscwc--mjCULQj8Ab7YPoPPrVHdYsbrYK_LgyCOf5G-ZXiyP12sc7TcNlcJ1AzEc3Us-SfM0scyoSVRjSZyLd6thyUCBj34xPkfsF-Vi2fuUohustuZYXPCBtd93QZbNiGEtRHaawwZxIH46OHgJei211Kq_--YwbQ4CreTFMQ"
-    let siteurl="https://iccleb.sharepoint.com/sites/NintexTrainee/JohnnyAbouHaidar";
-    let listname="Employees Training Information";
+    let bearertoken=tokenArg;
+    let siteurl=siteurlArg;
+    let listname=listnameArg;
     
     let col_items=[
               "Title",
