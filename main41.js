@@ -21,6 +21,21 @@ export class HelloWorld extends LitElement {
           type: 'string',
           title: 'sentid',
           description: ''
+        },
+        token: {
+          type: 'string',
+          title: 'sentid',
+          description: ''
+        },
+        siteurl: {
+          type: 'string',
+          title: 'sentid',
+          description: ''
+        },
+        listname: {
+          type: 'string',
+          title: 'sentid',
+          description: ''
         }
       }
     };
